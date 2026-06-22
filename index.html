@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Beitou Roots, Inc. | An independent app studio</title>
+<meta name="description" content="Beitou Roots is an independent San Francisco app studio building daily habits people love, makers of DailyT and Best Trivia Bars." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#252531;
+    --bg-deep:#1c1c26;
+    --card:#2c2c3a;
+    --card-hi:#32324380;
+    --ink:#ECECF4;
+    --muted:#A7A7BC;
+    --faint:#6E6E84;
+    --line:#3A3A4C;
+    --purple:#A670FF;
+    --blue:#7098FF;
+    --gold:#E8B84B;
+    --gold-deep:#C9962B;
+    --grad:linear-gradient(45deg,#A670FF 0%,#7098FF 100%);
+    --grad-soft:linear-gradient(135deg,rgba(166,112,255,.18),rgba(112,152,255,.10));
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  /* faint geometric backdrop */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(900px 600px at 78% -8%,rgba(112,152,255,.10),transparent 60%),
+      radial-gradient(800px 600px at 8% 12%,rgba(166,112,255,.10),transparent 55%),
+      repeating-linear-gradient(135deg,rgba(255,255,255,.013) 0 2px,transparent 2px 90px);
+  }
+  .wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 28px}
+
+  /* NAV */
+  nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;
+    max-width:1120px;margin:0 auto;padding:26px 28px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.16em;font-size:13px}
+  .brand .dot{width:22px;height:22px;border-radius:7px;background:var(--grad);
+    box-shadow:0 4px 16px rgba(166,112,255,.45)}
+  .nav-cta{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--muted);
+    text-decoration:none;border:1px solid var(--line);padding:9px 18px;border-radius:9px;transition:.25s}
+  .nav-cta:hover{color:#fff;border-color:var(--purple);background:rgba(166,112,255,.08)}
+
+  /* HERO */
+  header{position:relative;z-index:1;padding:78px 0 64px}
+  .accent{width:64px;height:3px;border-radius:3px;background:var(--grad);margin-bottom:30px}
+  h1{font-weight:200;font-size:clamp(46px,8.2vw,104px);line-height:.98;letter-spacing:.02em;
+    background:linear-gradient(92deg,#7B4ADB 0%,#A87FEF 50%,#fff 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .tagline{margin-top:26px;font-size:clamp(19px,2.5vw,27px);font-weight:500;color:#fff;white-space:nowrap}
+  .sub{margin-top:14px;font-size:clamp(15px,1.7vw,18px);color:var(--muted);max-width:560px}
+  .hero-cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14.5px;letter-spacing:.02em;
+    text-decoration:none;padding:14px 26px;border-radius:11px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s}
+  .btn-primary{background:var(--grad);color:#16151a;box-shadow:0 10px 30px rgba(120,120,255,.30)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(120,120,255,.42)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.02)}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:var(--purple);background:rgba(166,112,255,.08)}
+  .btn .arw{transition:transform .2s}
+  .btn:hover .arw{transform:translateX(4px)}
+
+  /* SECTION HEADS */
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--purple);text-transform:uppercase}
+  .sec-title{font-size:clamp(26px,3.6vw,38px);font-weight:700;letter-spacing:-.01em;margin-top:12px;color:#fff}
+
+  /* PRODUCTS */
+  section{position:relative;z-index:1;padding:46px 0}
+  .products{margin-top:38px;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px}
+  .card{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;padding:30px;
+    background:linear-gradient(180deg,var(--card),#26263275);overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+  .card::before{content:"";position:absolute;inset:0;opacity:.5;background:var(--accent-glow);pointer-events:none}
+  .card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .card.dailyt:hover,.card.btb:hover,.card.research:hover,.card.tickers:hover{border-color:var(--purple)}
+  .card.dailyt,.card.btb,.card.research,.card.tickers{--accent-glow:radial-gradient(420px 220px at 88% -10%,rgba(166,112,255,.20),transparent 60%)}
+  .ptop{display:flex;align-items:center;gap:16px;position:relative}
+  .tile{width:60px;height:60px;border-radius:15px;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:30px;flex-shrink:0}
+  .tile.t{background:#6E63FF url('https://www.dailytgame.com/icon.png') center/280% no-repeat;box-shadow:0 8px 24px rgba(139,92,246,.5)}
+  .tile.b{background:linear-gradient(140deg,#8B5CF6,#6E63FF);color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.5);font-size:27px}
+  .tile.r{background:linear-gradient(140deg,#8B5CF6,#6E63FF);color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.5);font-size:28px}
+  .tile.k{background:linear-gradient(140deg,#8B5CF6,#6E63FF);color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.5);font-size:30px}
+  .pname{font-size:18px;font-weight:800;letter-spacing:-.01em;color:#fff}
+  .card.research .pname{white-space:nowrap}
+  .pcat{font-size:12.5px;font-weight:600;letter-spacing:.05em;color:var(--muted);margin-top:3px}
+  .pdesc{margin-top:16px;font-size:15.5px;color:#CFCFE0;line-height:1.62}
+  .pbtns{margin-top:auto;padding-top:24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:relative;z-index:5}
+  .card-link{position:absolute;inset:0;z-index:4;border-radius:20px}
+  .mini{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:12px;text-decoration:none;
+    height:44px;min-width:132px;padding:0 8px;border-radius:10px;transition:.2s}
+  .mini-brand{background:var(--grad);color:#fff}
+  .mini-brand:hover{transform:translateY(-1px);filter:brightness(1.06)}
+  .mini-line{border:1px solid var(--line);color:var(--ink)}
+  .mini-line:hover{border-color:var(--purple);color:#fff;background:rgba(166,112,255,.08)}
+  .appstore{display:inline-block;line-height:0;transition:transform .2s}
+  .appstore:hover{transform:translateY(-1px)}
+  .appstore img{height:44px;width:auto;display:block}
+
+  /* CONTACT */
+  .contact{text-align:center;padding:78px 0}
+  .contact h2{font-size:clamp(28px,4.4vw,46px);font-weight:700;letter-spacing:-.015em;color:#fff;max-width:680px;margin:0 auto}
+  .contact .sub{margin:18px auto 0}
+  .contact .btn{margin-top:32px}
+
+  /* FOOTER */
+  footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:30px 0 44px}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;
+    font-size:13px;color:var(--faint)}
+  .foot a{color:var(--muted);text-decoration:none}
+  .foot a:hover{color:#fff}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+
+  @media(max-width:760px){
+    .products{grid-template-columns:1fr}
+    nav{padding:20px}
+    header{padding:48px 0 40px}
+    .hero-cta{gap:10px}
+    .tagline{white-space:normal}
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <div class="accent"></div>
+      <h1>BEITOU ROOTS</h1>
+      <p class="tagline">Future-proofing businesses with elite AI integration</p>
+    </div>
+  </header>
+
+  <section id="products">
+    <div class="wrap">
+      <div class="eyebrow">Our Products</div>
+      <h2 class="sec-title">Things we've shipped</h2>
+
+      <div class="products">
+        <!-- DAILYT -->
+        <div class="card dailyt">
+          <a class="card-link" href="https://www.dailytgame.com" target="_blank" rel="noopener" aria-label="Visit the DailyT website"></a>
+          <div class="ptop">
+            <div class="tile t"></div>
+            <div>
+              <div class="pname">DailyT</div>
+              <div class="pcat">Daily Trivia Game · iOS &amp; Web</div>
+            </div>
+          </div>
+          <p class="pdesc">Six electric questions. One hidden theme. A daily brain game built to fuel friendly group-chat rivalries. Solve it, grab your emoji grid, and prove you're the smartest one in the chat.</p>
+          <div class="pbtns">
+            <a class="appstore" href="https://apps.apple.com/app/dailyt-game/id6773089612" target="_blank" rel="noopener" aria-label="Download DailyT on the App Store">
+              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store" />
+            </a>
+            <a class="mini mini-brand" href="https://www.dailytgame.com" target="_blank" rel="noopener">Play on web →</a>
+          </div>
+        </div>
+
+        <!-- BEST TRIVIA BARS -->
+        <div class="card btb">
+          <a class="card-link" href="https://besttriviabars.com" target="_blank" rel="noopener" aria-label="Visit the Best Trivia Bars website"></a>
+          <div class="ptop">
+            <div class="tile b">★</div>
+            <div>
+              <div class="pname">Best Trivia Bars</div>
+              <div class="pcat">Ranked Bar-Trivia Directory</div>
+            </div>
+          </div>
+          <p class="pdesc">The definitive, community-ranked directory of the best bar-trivia nights in America. Find your next trivia night, vote for your favorite venue, and discover where the smartest crowds drink.</p>
+          <div class="pbtns">
+            <a class="mini mini-brand" href="https://besttriviabars.com" target="_blank" rel="noopener">Explore Rankings →</a>
+          </div>
+        </div>
+
+        <!-- BEITOU ROOTS RESEARCH / THE DAILY BUZZ -->
+        <div class="card research">
+          <a class="card-link" href="https://research.beitouroots.com" target="_blank" rel="noopener" aria-label="Visit Beitou Roots Research"></a>
+          <div class="ptop">
+            <div class="tile r">🐝</div>
+            <div>
+              <div class="pname">Beitou Roots Research</div>
+              <div class="pcat">Daily Market Pulse</div>
+            </div>
+          </div>
+          <p class="pdesc">Market pulse, twice a day. The Morning and Afternoon Buzz break down the market moves that matter, plus a Big Brain deep dive, in a tone that actually keeps you reading.</p>
+          <div class="pbtns">
+            <a class="mini mini-brand" href="https://research.beitouroots.com" target="_blank" rel="noopener">Read the latest →</a>
+          </div>
+        </div>
+
+        <!-- TICKERS -->
+        <div class="card tickers">
+          <a class="card-link" href="https://tickers.beitouroots.com" target="_blank" rel="noopener" aria-label="Visit Tickers"></a>
+          <div class="ptop">
+            <div class="tile k">$</div>
+            <div>
+              <div class="pname">Tickers</div>
+              <div class="pcat">Live Stock &amp; Crypto Heat Map</div>
+            </div>
+          </div>
+          <p class="pdesc">A live, color-coded heat map of the stocks and crypto you actually watch. Green for up, red for down, refreshed in real time, with one tap to dig into any ticker.</p>
+          <div class="pbtns">
+            <a class="mini mini-brand" href="https://tickers.beitouroots.com" target="_blank" rel="noopener">Open the board →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="eyebrow">Say hello</div>
+      <h2>Let's build something together.</h2>
+      <p class="sub">Press, partnerships, or just want to talk shop? The door's open.</p>
+      <a class="btn btn-primary" href="mailto:mel@beitouroots.com">Let's chat <span class="arw">→</span></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© 2026 Beitou Roots, Inc. · San Francisco, CA</div>
+    </div>
+  </footer>
+
+</body>
+</html>
