@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Beitou Roots, Inc. | An independent app studio</title>
-<meta name="description" content="Beitou Roots is an independent San Francisco app studio building daily habits people love, makers of DailyT, Best Trivia Bars, Tickers, and Flights." />
+<meta name="description" content="Beitou Roots is an independent San Francisco app studio building daily habits people love, makers of DailyT, Best Trivia Bars, Tickers, Flights, and Clock." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -84,8 +84,8 @@
     background:linear-gradient(180deg,var(--card),#26263275);overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
   .card::before{content:"";position:absolute;inset:0;opacity:.5;background:var(--accent-glow);pointer-events:none}
   .card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.35)}
-  .card.dailyt:hover,.card.btb:hover,.card.research:hover,.card.tickers:hover,.card.fleet:hover{border-color:var(--purple)}
-  .card.dailyt,.card.btb,.card.research,.card.tickers,.card.fleet{--accent-glow:radial-gradient(420px 220px at 88% -10%,rgba(166,112,255,.20),transparent 60%)}
+  .card.dailyt:hover,.card.btb:hover,.card.research:hover,.card.tickers:hover,.card.fleet:hover,.card.clock:hover{border-color:var(--purple)}
+  .card.dailyt,.card.btb,.card.research,.card.tickers,.card.fleet,.card.clock{--accent-glow:radial-gradient(420px 220px at 88% -10%,rgba(166,112,255,.20),transparent 60%)}
   .ptop{display:flex;align-items:center;gap:16px;position:relative}
   .tile{width:60px;height:60px;border-radius:15px;display:flex;align-items:center;justify-content:center;
     font-weight:800;font-size:30px;flex-shrink:0}
@@ -94,6 +94,7 @@
   .tile.r{background:linear-gradient(140deg,#8B5CF6,#6E63FF);color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.5);font-size:28px}
   .tile.k{background:linear-gradient(140deg,#8B5CF6,#6E63FF);color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.5);font-size:30px}
   .tile.f{background:linear-gradient(140deg,#8B5CF6,#6E63FF);color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.5);font-size:28px}
+  .tile.c{background:linear-gradient(140deg,#8B5CF6,#6E63FF);color:#fff;box-shadow:0 8px 24px rgba(139,92,246,.5);font-size:27px}
   .pname{font-size:18px;font-weight:800;letter-spacing:-.01em;color:#fff}
   .card.research .pname{white-space:nowrap}
   .pcat{font-size:12.5px;font-weight:600;letter-spacing:.05em;color:var(--muted);margin-top:3px}
@@ -229,6 +230,22 @@
           <p class="pdesc">Turn any old iPad or screen into a beautiful, always-on split-flap departures board. Pick your home airport for live flights, or run the timeless demo board, complete with the satisfying clack.</p>
           <div class="pbtns">
             <a class="mini mini-brand" href="https://flights.beitouroots.com" target="_blank" rel="noopener">Open the board →</a>
+          </div>
+        </div>
+
+        <!-- CLOCK -->
+        <div class="card clock">
+          <a class="card-link" href="https://clock.beitouroots.com" target="_blank" rel="noopener" aria-label="Visit Clock"></a>
+          <div class="ptop">
+            <div class="tile c">🕒</div>
+            <div>
+              <div class="pname">Clock</div>
+              <div class="pcat">Split-Flap Flip Clock</div>
+            </div>
+          </div>
+          <p class="pdesc">Turn any old iPad or screen into a gorgeous split-flap flip clock. Live time, date, and a fresh daily line, with themes, ticking seconds, and countdowns to the moments you are waiting for.</p>
+          <div class="pbtns">
+            <a class="mini mini-brand" href="https://clock.beitouroots.com" target="_blank" rel="noopener">Open the clock →</a>
           </div>
         </div>
       </div>
